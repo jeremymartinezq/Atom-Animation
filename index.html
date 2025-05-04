@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atom Animation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1 class="title">ATOM ANIMATION <span class="html-logo"></span> <span class="css-logo"></span> <span class="js-logo"></span></h1>
+  
+  <div class="atom">
+    <div class="center"></div>
+    
+    <div class="orbit orbit1">
+      <div class="electron electron1">
+        <div class="electron-highlight"></div>
+        <div class="electron-depth"></div>
+        <div class="electron-shadow"></div>
+      </div>
+    </div>
+    <div class="orbit orbit2">
+      <div class="electron electron2">
+        <div class="electron-highlight"></div>
+        <div class="electron-depth"></div>
+        <div class="electron-shadow"></div>
+      </div>
+    </div>
+    <div class="orbit orbit3">
+      <div class="electron electron3">
+        <div class="electron-highlight"></div>
+        <div class="electron-depth"></div>
+        <div class="electron-shadow"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="control-group">
+      <label for="speed">Speed:</label>
+      <input type="range" id="speed" min="1" max="10" value="5">
+    </div>
+    <div class="control-group">
+      <label for="angle">Viewing Angle:</label>
+      <input type="range" id="angle" min="0" max="90" value="65">
+    </div>
+    <div class="control-group">
+      <button id="pause-btn">Pause</button>
+      <button id="reverse-btn">Reverse</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

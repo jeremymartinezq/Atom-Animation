@@ -1,0 +1,503 @@
+body {
+  margin: 0;
+  background: #000;
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  background-position: 0 0, 40px 60px, 130px 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.title {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 80px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+               0 0 20px rgba(255, 255, 255, 0.5), 
+               0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.title h1 {
+  color: white;
+  font-size: 42px;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+.html-logo, .css-logo, .js-logo {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-left: 5px;
+  position: relative;
+}
+
+.html-logo {
+  background-color: #e34c26;
+  clip-path: polygon(50% 0%, 100% 15%, 93% 85%, 50% 100%, 7% 85%, 0% 15%);
+}
+
+.html-logo::after {
+  content: "5";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.css-logo {
+  background-color: #264de4;
+  clip-path: polygon(50% 0%, 100% 15%, 93% 85%, 50% 100%, 7% 85%, 0% 15%);
+}
+
+.css-logo::after {
+  content: "3";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.js-logo {
+  background-color: #f7df1e;
+  border-radius: 3px;
+}
+
+.js-logo::after {
+  content: "JS";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.atom {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  cursor: grab;
+}
+
+.atom:active {
+  cursor: grabbing;
+}
+
+.center {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 30% 30%, #ffa500, #ff4500);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 60px #ffa500, 0 0 100px rgba(255, 165, 0, 0.5);
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.center:hover {
+  box-shadow: 0 0 80px #ffa500, 0 0 120px rgba(255, 165, 0, 0.8);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform-style: preserve-3d;
+  box-shadow: 0 0 20px rgba(150, 150, 255, 0.2);
+  backface-visibility: visible;
+  perspective: 1000px;
+  perspective-origin: center center;
+}
+
+.orbit1 {
+  width: 300px;
+  height: 150px;
+  transform: translate(-50%, -50%) rotateX(60deg) rotateY(15deg) rotateZ(0deg);
+  animation: orbit1-rotate 8s linear infinite;
+}
+
+.orbit2 {
+  width: 260px;
+  height: 130px;
+  transform: translate(-50%, -50%) rotateX(60deg) rotateY(-20deg) rotateZ(60deg);
+  animation: orbit2-rotate 12s linear infinite;
+}
+
+.orbit3 {
+  width: 220px;
+  height: 110px;
+  transform: translate(-50%, -50%) rotateX(65deg) rotateY(10deg) rotateZ(120deg);
+  animation: orbit3-rotate 15s linear infinite;
+}
+
+.electron {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+  transform-style: preserve-3d;
+  overflow: visible;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+  perspective: 800px;
+}
+
+/* Electron 1 - Cyan/Turquoise */
+.electron1 {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(30deg);
+  animation: electron1-movement 8s linear infinite;
+  background: none; /* Remove background to use gradient layers */
+  transform-style: preserve-3d;
+  border-radius: 50%;
+  position: relative;
+}
+
+.electron1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #80ffff 0%,
+    #00c0c0 50%,
+    #008080 100%
+  );
+  box-shadow: 
+    inset -5px -5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.5);
+  z-index: 2;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+.electron1::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  filter: blur(2px);
+  box-shadow: 0 0 25px #00ffff, 0 0 40px rgba(0, 255, 255, 0.8);
+  z-index: 1;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+/* Electron 2 - Blue */
+.electron2 {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(30deg);
+  animation: electron2-movement 12s linear infinite;
+  background: none;
+  transform-style: preserve-3d;
+  border-radius: 50%;
+  position: relative;
+}
+
+.electron2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #8080ff 0%,
+    #0000c0 50%,
+    #000080 100%
+  );
+  box-shadow: 
+    inset -5px -5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.5);
+  z-index: 2;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+.electron2::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  filter: blur(2px);
+  box-shadow: 0 0 25px #3333ff, 0 0 40px rgba(51, 51, 255, 0.8);
+  z-index: 1;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+/* Electron 3 - Pink/Magenta */
+.electron3 {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(30deg);
+  animation: electron3-movement 15s linear infinite;
+  background: none;
+  transform-style: preserve-3d;
+  border-radius: 50%;
+  position: relative;
+}
+
+.electron3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #ff80ff 0%,
+    #c000c0 50%,
+    #800080 100%
+  );
+  box-shadow: 
+    inset -5px -5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.5);
+  z-index: 2;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+.electron3::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  filter: blur(2px);
+  box-shadow: 0 0 25px #ff00ff, 0 0 40px rgba(255, 0, 255, 0.8);
+  z-index: 1;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+/* Electron highlight - creates the 3D effect */
+.electron-highlight {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 15%;
+  left: 15%;
+  background: rgba(255, 255, 255, 0.9);
+  filter: blur(1px);
+  z-index: 3;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  transform-style: preserve-3d;
+}
+
+/* Electron depth - adds 3D depth */
+.electron-depth {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 70% 70%,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 80%
+  );
+  transform: translateZ(-2px);
+  z-index: 1;
+  transform-style: preserve-3d;
+}
+
+/* Electron shadow - creates shadow effect */
+.electron-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
+  transform: translateZ(1px);
+  z-index: 2;
+  transform-style: preserve-3d;
+}
+
+/* Orbit rotation animations */
+@keyframes orbit1-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateX(60deg) rotateY(15deg) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateX(60deg) rotateY(15deg) rotateZ(360deg);
+  }
+}
+
+@keyframes orbit2-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateX(60deg) rotateY(-20deg) rotateZ(60deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateX(60deg) rotateY(-20deg) rotateZ(420deg);
+  }
+}
+
+@keyframes orbit3-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotateX(65deg) rotateY(10deg) rotateZ(120deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateX(65deg) rotateY(10deg) rotateZ(480deg);
+  }
+}
+
+/* Electron movement animations */
+@keyframes electron1-movement {
+  0% {
+    transform: translate(-50%, -50%) rotateY(0deg) rotateZ(0deg) translateX(150px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateY(0deg) rotateZ(0deg) translateX(150px) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes electron2-movement {
+  0% {
+    transform: translate(-50%, -50%) rotateY(0deg) rotateZ(0deg) translateX(130px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateY(0deg) rotateZ(0deg) translateX(130px) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes electron3-movement {
+  0% {
+    transform: translate(-50%, -50%) rotateY(0deg) rotateZ(0deg) translateX(110px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateY(0deg) rotateZ(0deg) translateX(110px) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.controls {
+  margin-top: 50px;
+  background: rgba(0, 0, 30, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  border: 1px solid rgba(100, 100, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 100, 255, 0.3);
+}
+
+.control-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.control-group label {
+  color: #c0c0ff;
+  margin-right: 10px;
+  width: 100px;
+  text-shadow: 0 0 5px rgba(100, 100, 255, 0.5);
+}
+
+.control-group input[type="range"] {
+  flex: 1;
+  cursor: pointer;
+  background: rgba(50, 50, 150, 0.3);
+  height: 6px;
+  -webkit-appearance: none;
+  border-radius: 3px;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #4080ff;
+  box-shadow: 0 0 8px #4080ff;
+  cursor: pointer;
+}
+
+.control-group button {
+  background: rgba(40, 40, 100, 0.6);
+  color: #c0c0ff;
+  border: 1px solid rgba(100, 100, 255, 0.4);
+  padding: 8px 15px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 100, 255, 0.2);
+  text-shadow: 0 0 5px rgba(100, 100, 255, 0.5);
+}
+
+.control-group button:hover {
+  background: rgba(60, 60, 150, 0.6);
+  box-shadow: 0 0 15px rgba(0, 100, 255, 0.4);
+}
+
+.control-group button.active {
+  background: rgba(0, 100, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 150, 255, 0.6);
+}
+
+/* Electron trail styling */
+.electron-trail {
+  border-radius: 50%;
+  box-shadow: 0 0 5px currentColor;
+}
