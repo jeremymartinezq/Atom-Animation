@@ -1,6 +1,8 @@
 # Atom Animation
 
 A 3D atom animation created with HTML, CSS, and JavaScript. This interactive animation features a central nucleus with three electrons orbiting on different planes.
+![Screenshot 2025-05-04 172503](https://github.com/user-attachments/assets/b265e15e-1b73-41f1-b4ff-7be8623f718c)
+
 
 ## Features
 
