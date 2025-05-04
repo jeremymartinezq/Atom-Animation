@@ -35,3 +35,6 @@ You can also click and drag the atom to rotate it in 3D space.
 ## License
 
 MIT 
+
+## Author
+Developed by Jeremy Martinez-Quinones.
